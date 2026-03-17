@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Feedback</title>
+
+<style>
+body{
+font-family: Arial;
+background-color:#f4f4f4;
+}
+
+nav{
+background:#333;
+padding:10px;
+}
+
+nav a{
+color:white;
+margin:10px;
+text-decoration:none;
+}
+
+nav a:hover{
+color:yellow;
+}
+
+form{
+background:white;
+width:400px;
+margin:auto;
+padding:20px;
+border:1px solid #ccc;
+}
+
+input,select,textarea{
+width:100%;
+padding:8px;
+margin:5px 0 10px 0;
+}
+
+input[type=submit]{
+background:#333;
+color:white;
+cursor:pointer;
+}
+
+input[type=submit]:hover{
+background:black;
+}
+
+footer{
+text-align:center;
+margin-top:20px;
+}
+</style>
+
+</head>
+
+<body>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About Us</a>
+<a href="deals.html">Deals</a>
+<a href="cart.html">Cart</a>
+<a href="login.html">Login</a>
+<a href="contact.html">Contact</a>
+<a href="feedback.html">Feedback</a>
+</nav>
+
+<h1 style="text-align:center;">Customer Feedback</h1>
+
+<form action="https://httpbin.org/get" method="get">
+
+<label>Name</label>
+<input type="text" name="name" required>
+
+<label>Email</label>
+<input type="email" name="email" required>
+
+<label>Rate our website</label>
+<select name="rating">
+<option>Excellent</option>
+<option>Good</option>
+<option>Average</option>
+<option>Poor</option>
+</select>
+
+<label>Your Comment</label>
+<textarea name="comment"></textarea>
+
+
+<input type="submit" value="Send Feedback">
+
+</form>
+
+<footer>
+<p>© 2026 Game Store</p>
+</footer>
+
+</body>
+</html>
