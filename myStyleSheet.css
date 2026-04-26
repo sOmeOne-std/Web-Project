@@ -1,0 +1,52 @@
+#login{
+    background-color: rgb(233, 206, 179);
+   
+    height: 100vh;
+}
+#userPage{
+    background-color: rgb(237, 220, 203);
+    align-items: center;
+    align-content: center;
+    height: 100vh;
+   
+
+
+}
+.navbar {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 15px 30px;
+background-color: #5a5246;
+position: relative; 
+    z-index: 1000;
+}
+
+.logo {
+display: flex;
+align-items: center;
+gap: 10px;
+font-size: 22px;
+font-weight: bold;
+}
+
+.logo img {
+width: 40px;
+height: 40px;
+border-radius: 50%;
+}
+
+.nav-links a {
+margin-left: 20px;
+text-decoration: none;
+color: #000000;
+font-size: 16px;
+}
+
+.nav-links a:hover {
+text-decoration: underline;
+}
+.divider {
+border-top: 1px dashed #ccc;
+margin: 20px 0;
+}
