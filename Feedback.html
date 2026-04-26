@@ -1,102 +1,159 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Feedback</title>
 
-<style>
-body{
-font-family: Arial;
-background-color:#f4f4f4;
-}
-
-nav{
-background:#333;
-padding:10px;
-}
-
-nav a{
-color:white;
-margin:10px;
-text-decoration:none;
-}
-
-nav a:hover{
-color:yellow;
-}
-
-form{
-background:white;
-width:400px;
-margin:auto;
-padding:20px;
-border:1px solid #ccc;
-}
-
-input,select,textarea{
-width:100%;
-padding:8px;
-margin:5px 0 10px 0;
-}
-
-input[type=submit]{
-background:#333;
-color:white;
-cursor:pointer;
-}
-
-input[type=submit]:hover{
-background:black;
-}
-
-footer{
-text-align:center;
-margin-top:20px;
-}
-</style>
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 
-<body>
+<body class="bg-light">
 
-<nav>
-<a href="index.html">Home</a>
-<a href="about.html">About Us</a>
-<a href="deals.html">Deals</a>
-<a href="cart.html">Cart</a>
-<a href="login.html">Login</a>
-<a href="contact.html">Contact</a>
-<a href="feedback.html">Feedback</a>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<div class="container">
+<a class="navbar-brand" href="#">Game Store</a>
+
+<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="nav">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+<li class="nav-item"><a class="nav-link" href="deals.html">Deals</a></li>
+<li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+<li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+<li class="nav-item"><a class="nav-link active" href="feedback.html">Feedback</a></li>
+</ul>
+</div>
+</div>
 </nav>
 
-<h1 style="text-align:center;">Customer Feedback</h1>
+<!-- Title -->
+<div class="container text-center mt-4">
+<h1 class="fw-bold">Customer Feedback</h1>
+</div>
 
-<form action="https://httpbin.org/get" method="get">
+<!-- Form -->
+<div class="container mt-4">
+<div class="row justify-content-center">
+<div class="col-md-6">
 
-<label>Name</label>
-<input type="text" name="name" required>
+<form id="feedbackForm" class="bg-white p-4 rounded shadow">
 
-<label>Email</label>
-<input type="email" name="email" required>
+<!-- Name -->
+<div class="mb-3">
+<label class="form-label">Name</label>
+<input type="text" id="name" class="form-control">
+<div class="text-danger" id="nameError"></div>
+</div>
 
-<label>Rate our website</label>
-<select name="rating">
+<!-- Email -->
+<div class="mb-3">
+<label class="form-label">Email</label>
+<input type="text" id="email" class="form-control">
+<div class="text-danger" id="emailError"></div>
+</div>
+
+<!-- Rating -->
+<div class="mb-3">
+<label class="form-label">Rate our website</label>
+<select class="form-select">
 <option>Excellent</option>
 <option>Good</option>
 <option>Average</option>
 <option>Poor</option>
 </select>
+</div>
 
-<label>Your Comment</label>
-<textarea name="comment"></textarea>
+<!-- Radio -->
+<div class="mb-3">
+<label class="form-label">Would you recommend us?</label><br>
+<input type="radio" name="recommend"> Yes
+<input type="radio" name="recommend"> No
+</div>
 
+<!-- Checkbox -->
+<div class="mb-3">
+<label class="form-label">What do you like?</label><br>
+<input type="checkbox"> Games
+<input type="checkbox"> Prices
+<input type="checkbox"> Design
+</div>
 
-<input type="submit" value="Send Feedback">
+<!-- Comment -->
+<div class="mb-3">
+<label class="form-label">Your Comment</label>
+<textarea id="comment" class="form-control"></textarea>
+<div class="text-danger" id="commentError"></div>
+</div>
+
+<!-- Submit -->
+<button type="submit" class="btn btn-dark w-100">Send Feedback</button>
 
 </form>
 
-<footer>
-<p>© 2026 Game Store</p>
+</div>
+</div>
+</div>
+
+<!-- Footer -->
+<footer class="text-center mt-4 p-3 bg-dark text-white">
+© 2026 Game Store
 </footer>
+
+<!-- JavaScript Validation -->
+<script>
+document.getElementById("feedbackForm").addEventListener("submit", function(e){
+
+let name = document.getElementById("name").value;
+let email = document.getElementById("email").value;
+let comment = document.getElementById("comment").value;
+
+let valid = true;
+
+// Name validation (only letters, at least 3 chars)
+let namePattern = /^[A-Za-z ]{3,}$/;
+if(!namePattern.test(name)){
+document.getElementById("nameError").innerText = "Name must be at least 3 letters";
+valid = false;
+}else{
+document.getElementById("nameError").innerText = "";
+}
+
+// Email validation (custom regex)
+let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+if(!emailPattern.test(email)){
+document.getElementById("emailError").innerText = "Enter valid email";
+valid = false;
+}else{
+document.getElementById("emailError").innerText = "";
+}
+
+// Comment validation (at least 10 characters)
+if(comment.length < 10){
+document.getElementById("commentError").innerText = "Comment must be at least 10 characters";
+valid = false;
+}else{
+document.getElementById("commentError").innerText = "";
+}
+
+// prevent submit if invalid
+if(!valid){
+e.preventDefault();
+}
+
+});
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

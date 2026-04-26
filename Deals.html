@@ -1,80 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Game Deals</title>
 
-<style>
-body{
-font-family: Arial;
-background-color:#f4f4f4;
-}
-
-nav{
-background-color:#333;
-padding:10px;
-}
-
-nav a{
-color:white;
-margin:10px;
-text-decoration:none;
-}
-
-nav a:hover{
-color:yellow;
-}
-
-table{
-width:80%;
-margin:auto;
-border-collapse:collapse;
-background:white;
-}
-
-th,td{
-border:1px solid black;
-padding:10px;
-text-align:center;
-}
-
-th{
-background-color:#444;
-color:white;
-}
-
-tr:hover{
-background-color:#eee;
-}
-
-footer{
-text-align:center;
-margin-top:20px;
-}
-
-img{
-width:100px;
-height:auto;
-border-radius:8px;
-}
-</style>
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 
-<body>
+<body class="bg-light">
 
-<nav>
-<a href="index.html">Home</a>
-<a href="about.html">About Us</a>
-<a href="deals.html">Deals</a>
-<a href="cart.html">Cart</a>
-<a href="login.html">Login</a>
-<a href="contact.html">Contact</a>
-<a href="feedback.html">Feedback</a>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<div class="container">
+<a class="navbar-brand" href="#">Game Store</a>
+
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="nav">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+<li class="nav-item"><a class="nav-link active" href="deals.html">Deals</a></li>
+<li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+<li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+<li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+</ul>
+</div>
+</div>
 </nav>
 
-<h1 style="text-align:center;">Latest Game Deals</h1>
+<!-- Title -->
+<div class="container text-center mt-4">
+<h1 class="fw-bold">Latest Game Deals</h1>
+</div>
 
-<table>
+<!-- Table -->
+<div class="container mt-4">
+<div class="table-responsive">
+
+<table class="table table-bordered table-hover text-center align-middle">
+<thead class="table-dark">
 <tr>
 <th>Game</th>
 <th>Platform</th>
@@ -82,32 +54,37 @@ border-radius:8px;
 <th>Deal Price</th>
 <th>Image</th>
 </tr>
+</thead>
+
+<tbody>
 
 <tr>
 <td>FIFA 25</td>
 <td>PlayStation</td>
 <td>$70</td>
-<td>$50</td>
+<td class="text-success fw-bold">$50</td>
 <td>
-<img src="https://www.fifa-fc.com/wp-content/uploads/2024/09/EA-SPORTS-FC-25-Standard-Edition-PS4-VideoGame.jpg"></td>
+<img src="https://www.fifa-fc.com/wp-content/uploads/2024/09/EA-SPORTS-FC-25-Standard-Edition-PS4-VideoGame.jpg" class="img-fluid rounded" width="100">
+</td>
 </tr>
 
 <tr>
 <td>Call of Duty</td>
 <td>Xbox</td>
 <td>$65</td>
-<td>$45</td>
+<td class="text-success fw-bold">$45</td>
 <td>
-<img src="https://m.media-amazon.com/images/I/810CE2yW0oL.jpg"></td>
+<img src="https://m.media-amazon.com/images/I/810CE2yW0oL.jpg" class="img-fluid rounded" width="100">
+</td>
 </tr>
 
 <tr>
 <td>Cyberpunk 2077</td>
 <td>PC</td>
 <td>$60</td>
-<td>$35</td>
+<td class="text-success fw-bold">$35</td>
 <td>
-<img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg">
+<img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg" class="img-fluid rounded" width="100">
 </td>
 </tr>
 
@@ -115,16 +92,25 @@ border-radius:8px;
 <td>Spider-Man 2</td>
 <td>PlayStation</td>
 <td>$75</td>
-<td>$55</td>
+<td class="text-success fw-bold">$55</td>
 <td>
-<img src="https://consogame.com/photos/products/1782/image.jpg" width="100"></td>
+<img src="https://consogame.com/photos/products/1782/image.jpg" class="img-fluid rounded" width="100">
+</td>
 </tr>
 
+</tbody>
 </table>
 
-<footer>
-<p>© 2026 Game Store</p>
+</div>
+</div>
+
+<!-- Footer -->
+<footer class="text-center mt-4 p-3 bg-dark text-white">
+© 2026 Game Store
 </footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

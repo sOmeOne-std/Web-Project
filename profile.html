@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <script>
+        let images = ["img1.jpg", "img2.jpg", "img3.jpg"];
+        let names = ["Ali", "Ahmed", "Sara"];
+        let titles = ["Developer", "Designer", "Manager"];
+
+        let index = 0;
+
+        function changeImage(direction) {
+            if (direction === "next") {
+                index = (index + 1) % images.length;
+            } else {
+                index = (index - 1 + images.length) % images.length;
+            }
+
+            document.getElementById("profileImg").src = images[index];
+            document.getElementById("name").innerText = names[index];
+            document.getElementById("title").innerText = titles[index];
+        }
+    </script>
+</head>
+
+<body class="container mt-5">
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <a class="navbar-brand text-white ms-3" href="#">MySite</a>
+    <div class="navbar-nav">
+        <a class="nav-link text-white" href="login.html">Login</a>
+        <a class="nav-link text-white" href="profile.html">Profile</a>
+        <a class="nav-link text-white" href="calculation.html">Calculator</a>
+    </div>
+</nav>
+
+<div class="card text-center bg-light mx-auto" style="width: 18rem;">
+    <img id="profileImg" src="img1.jpg" class="card-img-top rounded" alt="profile">
+
+    <div class="card-body">
+        <h5 id="name">Ali</h5>
+        <p id="title">Developer</p>
+
+        <div class="d-flex justify-content-between">
+            <button class="btn btn-secondary" onclick="changeImage('prev')">⬅</button>
+            <button class="btn btn-secondary" onclick="changeImage('next')">➡</button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
