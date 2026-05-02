@@ -46,13 +46,22 @@
                     <form name= "loginForm" action="" onsubmit= "return validatFormFunction();">
                         
                         <div class="mb-3 mt-3">
-                            <label for="email">Enter your Email or User Name: </label>
-                            <input type="email" class="form-control" placeholder="Enter Email or User Name here" name="email">
+                            <label for="name">Enter your Name:</label>
+                            <input type="text" class="form-control" placeholder="up to 8 characters " name="name" size="8">
+                            <div id= "nameError" class="text-danger"></div>
                         </div>
                         <div class="mb-3">
+                            <label for="email">Enter your Email</label>
+                            <input type="email" class="form-control" placeholder="example@gamil.com. " name="email">
+                            <div id="emailError" class="text-danger"></div>
+                            <br>
+                        
+                        <div class="mb-3">
                             <label for="Password">Enter Password: </label>
-                            <input type="password" class="form-control" placeholder="Enter the Password here" name="password" size="8">
-                        </div>
+                            <input type="password" class="form-control" placeholder="no more than 8 characters" name="password" size="8">
+                            <div id="passwordError" class="text-danger"></div>
+                            <br>
+                        
                         <button type="submit" class="btn btn-primary">Register</button>
 
 
@@ -65,35 +74,52 @@
         </div>
         <script type="text/JavaScript">
             function validatFormFunction(){
+                var name = document.forms["loginForm"]["name"];
                 var email = document.forms["loginForm"]["email"];
                 var password = document.forms["loginForm"]["password"];
+                var userData = { name: name.value,
+                                email: eamil.value,
+                                password: password.value
+                            };
+                if (name.value === "") {
 
-                if(email.value==""){
-                    alert("Please do not leave the  field Empty");
+
+                    document.getElementById("nameError").innerHTML = "name is required.";
+                    Name.focus();
+                    return false ;
+                    }
+
+                if (email.value === "") {
+
+
+                    document.getElementById("emailError").innerHTML = "Email is required.";
                     email.focus();
-                    return false;
-                }
+                    return false ;
+                    }
+
                 if(email.value.indexOf("@", 0) < 0) {
-                    alert("Please enter a valid e-mail address.");
-                    email.focus(); return 
-                    false;
-                                        }
+                    document.getElementById("emailError").innerHTML = "invalid Email format";
+                    email.focus();
+                    return false ;
+                }
+                                        
                 if(email.value.indexOf(".", 0) < 0) {
 
-                    alert("Please enter a valid e-mail address.");
+                    document.getElementById("emailError").innerHTML = "invalid Email format ";
                     email.focus();
-                    return false;
+                    return false ;
                 }
 
                 if(password.value==""){
-                    alert("Please Enter the password");
+                    document.getElementById("passwordError").innerHTML = "password is required.";
                     password.focus();
-                    return false;    
+                    return false ;   
+                } 
 
 
 
             }
-        }
+        
     
         </script>
 
